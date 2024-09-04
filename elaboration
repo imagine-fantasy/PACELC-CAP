@@ -1,0 +1,79 @@
+
+
+What is a distributed database 
+
+A distributed database is a database system where data is stored across multiple physical locations, often on different servers or computers connected through a network.This approach offers several advantages over traditional centralized databases.
+
+Key features of distributed databases include:
+
+Data distribution: Information is spread across multiple nodes or sites.
+Improved performance: By distributing data and processing, queries can be executed in parallel.
+Increased reliability: If one node fails, others can continue to operate.
+Scalability: It's easier to add new nodes to accommodate growing data and user demands.
+
+What is Cap theorem
+The CAP theorem, also known as Brewer's theorem after computer scientist Eric Brewer, is a fundamental principle in distributed computing systems, particularly relevant to distributed databases. It states that it is impossible for a distributed data store to simultaneously provide more than two out of the following three guarantees:
+
+Consistency (C): All nodes see the same data at the same time.
+Availability (A): Every request receives a response, without guarantee that it contains the most recent version of the information.
+Partition tolerance (P): The system continues to operate despite arbitrary partitioning due to network failures.
+
+
+Key points about the CAP theorem:
+
+It suggests that in the presence of a network partition, one has to choose between consistency and availability.
+In practice, partition tolerance is necessary for distributed systems, so the real trade-off is often between consistency and availability.
+Different types of distributed systems may prioritize different guarantees based on their specific requirements.
+
+In a distributed system, you can only have two out of these three guarantees at any given time:
+C - Consistency: All nodes see the same data at the same time.
+A - Availability: Every request gets a response (but not necessarily the most recent data).
+P - Partition tolerance: The system keeps working even if communication between some nodes fails.
+
+You must choose which two are most important for your system, as you can't have all three simultaneously.
+
+In practice, because networks can always fail (partition), you're really choosing between consistency and availability when a network partition occurs.
+
+Key takeaway: It's about trade-offs. You can't have perfect consistency, availability, and partition tolerance all at once in a distributed system. You have to prioritize based on your specific needs.
+
+1. CA (Consistency + Availability)
+   - Prioritizes: Strong consistency and high availability
+   - Sacrifices: Full partition tolerance
+   - Example systems: Traditional RDBMS (e.g., MySQL, PostgreSQL)
+   - Trade-off: May become unavailable during network partitions
+
+2. CP (Consistency + Partition Tolerance)
+   - Prioritizes: Strong consistency and partition tolerance
+   - Sacrifices: Full availability
+   - Example systems: HBase, BigTable, MongoDB (in certain configurations)
+   - Trade-off: May become temporarily unavailable to maintain consistency
+
+3. AP (Availability + Partition Tolerance)
+   - Prioritizes: High availability and partition tolerance
+   - Sacrifices: Strong consistency (often uses eventual consistency)
+   - Example systems: Cassandra, CouchDB, Amazon Dynamo
+   - Trade-off: May return stale or inconsistent data during partitions
+
+PACELC stands for:
+
+P: Partition tolerance
+A: Availability
+C: Consistency
+E: Else (when the system is running normally without partitions)
+L: Latency
+C: Consistency
+
+
+The Theorem
+PACELC states that in case of network partitioning (P) in a distributed computer system, one has to choose between availability (A) and consistency (C), but else (E), even when the system is running normally in the absence of partitions, one has to choose between latency (L) and consistency (C).
+Key Points
+
+Partition Scenario: This part is essentially the CAP theorem. When a network partition occurs, the system must choose between availability and consistency.
+Normal Operation: PACELC adds consideration for when the system is operating normally (no partitions). In this case, there's a trade-off between latency and consistency.
+Expanded Trade-offs: While CAP focuses on the extreme case of a network partition, PACELC acknowledges that even in normal operations, there are trade-offs to consider.
+
+
+https://www.designgurus.io/answers/detail/what-is-the-cap-theorem?gad_source=1&gclid=CjwKCAjw59q2BhBOEiwAKc0ijfKB79LzeTMWuTa4hXJ_LSVaOljemrQOfp1Xv4TKHUVQnq_5q8AvhBoC1voQAvD_BwE
+
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.devgenius.io%2Fcap-theorem-distributed-systems-d3ead9ee6342&psig=AOvVaw14P_HQrXUeGqOaFwlvvsgN&ust=1725516402991000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiBst3PqIgDFQAAAAAdAAAAABAJ
+
