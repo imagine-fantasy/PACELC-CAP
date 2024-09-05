@@ -1,0 +1,16 @@
+Id,Name,Parent
+A,Database Choice,
+B,CockroachDB,A
+C,Aurora,A
+D,Strong Consistency,B
+E,Horizontal Scaling,B
+F,Distributed SQL,B
+G,High Availability,C
+H,Low Latency Reads,C
+I,AWS Integration,C
+J,Suitable for global consistent transactions,D
+K,Add nodes to improve performance,E
+L,Distributed queries and joins,F
+M,Automated failover and read scaling,G
+N,Fast reads from nearby replicas,H
+O,Easy integration with other AWS services,I
